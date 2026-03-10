@@ -1,0 +1,115 @@
+component are parts of our project
+use for desing user screen
+reuseable
+
+View use for showing multiple components like multiple Text components
+----
+Has two type 
+1. functional base
+  const app = ()=>
+       {
+	return (
+		<View>
+			<Text style={ {fontSize: 30} }>Hello Bilal</Text>
+		</View>	
+ 		);
+	}
+
+2. Class Base
+it is not in use now 
+
+
+-------------
+Mulitple component in one file
+
+const App = () => {
+  return (
+    <View>
+      <Text style={ { fontSize:30 } }>MyApp</Text>
+      <Text style={ { fontSize:30 } }>Bilal Mobile App</Text>
+      <Button title="Press me" />
+      <OtherComponent />
+    </View>
+  );
+};
+
+// Other commponent 
+const OtherComponent = () => {
+  return (
+    <View>
+      <Text style={ { fontSize:30 } }>Other Component</Text>
+    </View>
+  );
+};
+
+=======================================
+
+Lesson 6 -- jsx --
+jsx = javascript syntax extension
+help to use html and javacript code into one line useing curly brackets
+
+variable use 
+const First = () => {
+  // using variable to store the value of the text
+  const text = 'vairable value';
+  return (
+    <View>
+      <Text>First inherited component</Text>
+      <Text style={{ fontSize: 18, fontWeight: 'bold' }}>{text}</Text>
+    </View>
+  )
+}
+
+
+Expression
+ Jo koi value return kry
+ jsx support
+
+statement
+ Jo joi value return nh krti
+ jsx does not supports
+
+
+============================
+Lesson 7 -- Button --
+example of on press funtion hit.
+
+const Press = () => {
+    const getName = () => {
+        console.warn('Bilal');
+    }
+  return (
+    <View>
+        <Text>Press inherited component</Text>
+        <Button title="Press" onPress={getName} />
+    </View>
+  );
+};
+
+=============================
+Lesson 8 -- Run time change value --
+useState Hook
+
+const [name, setName] = useState();
+ye 2 chzen return karta ha first is state variable , second is function use which update values
+
+--------- Example ---------
+import { View, Text, Button } from 'react-native'
+import React, {useState} from 'react'
+
+const UseStateHook = () => {
+
+    // name hold my name and setName is a function to update the name.
+    // useState is a hook that takes the initial value of the name and returns an array with the name and setName function
+    const [name, setName] = useState('Bilal');
+
+  return (
+    <View>
+      <Text>Use State Hook</Text>
+      <Text>{name}</Text>
+        <Button title="Change Name" onPress={() => name == "Bilal" ? setName('Raza') : setName('Bilal')} />  {/* when button is pressed the name will be updated to Raza */}
+    </View>
+  )
+}
+
+export default UseStateHook
