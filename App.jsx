@@ -45,15 +45,27 @@
 // export default App;
 import { View, Text, Button} from 'react-native';
 import React from 'react';
-import First from './src/components/First';
-import Press from './src/components/Press';
-import UseStateHook from './src/components/UseState';
-import Props from './src/components/Props';
-import InputText from './src/components/InputText';
-import Style from './src/components/Style';
+// import First from './src/components/First';
+// import Press from './src/components/Press';
+// import UseStateHook from './src/components/UseState';
+// import Props from './src/components/Props';
+// import InputText from './src/components/InputText';
+// import Style from './src/components/Style';
+// import FlatListScreen from './src/components/FlatListScreen';
+// import SectionListScreen from './src/components/SectionListScreen';
+// import Login from './src/components/Login';
+// import ContactList from './src/screens/contact/ContactList';
+// import Grid from './src/components/Grid';
+// import ClassComponent from './src/components/ClassComponent';
+// import UseEfffectHook from './src/components/UseEfffectHook';
+// import UseEffectHookUpdate from './src/components/UseEffectHookUpdate';
+// import UseEffectHookUnMount from './src/components/UseEffectHookUnMount';
+// import Loader from './src/components/Loader';
+// import PressAbleComponent from './src/components/PressAbleComponent';
+import StatusBarExample from './src/components/StatusBarExample';
 const App = () => {
   return (
-    <View>
+    <View style={ { flex: 1} }>
       {/* <Text>----------- X ------------ X ------------</Text>
       <Text style={ { fontSize: 20 } }>----------- Simple Show In Main ------------</Text>
       <Text style={ { fontSize:30 } }>MyApp</Text>
@@ -76,7 +88,7 @@ const App = () => {
       <Text style={ { fontSize: 20 } }>----------- Use State Hook Commponent Run time change values ------------</Text>
       <UseStateHook /> */}
 
-      <Text>----------- X ------------ X ------------</Text>
+      {/* <Text>----------- X ------------ X ------------</Text>
       <Text style={ { fontSize: 20 } }>----------- Props ------------</Text>
       <Props />
 
@@ -87,7 +99,43 @@ const App = () => {
       <Text>----------- X ------------ X ------------</Text>
       <Text style={ { fontSize: 20 } }>----------- Style ------------</Text>
       <Style />
+       */}
 
+      {/* <Text>----------- X ------------ X ------------</Text>
+      <Text style={ { fontSize: 20 } }>----------- Flat List ------------</Text>
+      <FlatListScreen /> */}
+
+      {/* <Text>----------- X ------------ X ------------</Text>
+      <Text style={ { fontSize: 20 } }>----------- Section List ------------</Text>
+      <SectionListScreen />
+       */}
+       
+      {/* <Text>----------- X ------------ X ------------</Text>
+      <Text style={ { fontSize: 20 } }>----------- Login Form ------------</Text>
+      <Login /> */}
+      
+      
+      {/* <Text>----------- X ------------ X ------------</Text>
+      <Text style={ { fontSize: 20 } }>----------- Contact List ------------</Text>
+      <ContactList /> */}
+
+      {/* <Text>----------- X ------------ X ------------</Text>
+      <Text style={ { fontSize: 20 } }>-----------Grid ------------</Text>
+      <Grid /> */}
+       
+      {/* <ClassComponent/> */}
+
+      {/* <UseEfffectHook/> */}
+
+      {/* <UseEffectHookUpdate/> */}
+
+      {/* <UseEffectHookUnMount/> */}
+
+      {/* <Loader/> */}
+
+      {/* <PressAbleComponent/> */}
+      
+      <StatusBarExample/>
     </View>
   );
 };

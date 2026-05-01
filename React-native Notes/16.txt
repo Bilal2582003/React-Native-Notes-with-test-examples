@@ -1,0 +1,119 @@
+Grid ye 2 ways ma chlta ha row and column wise 
+list only column wise chlti h 
+
+when we use component and there is grid so we use ScrollView for scroll effect 
+when we style on ScrollView we need contentContainerStyle property for styling normal style function not runs here
+
+const data = [
+    { id: 1, name: 'Item 1' },
+    { id: 2, name: 'Item 2' },
+];
+ return (
+        <View style={styles.mainContainer}>
+            <Text style={styles.heading}>Grid Example</Text>
+            <ScrollView contentContainerStyle={styles.container}>
+                {
+                    data.map((item) => (
+                        <View style={styles.grid} key={item.id}>
+                            <Text style={styles.gridText}>{item.name}</Text>
+                        </View>
+                    ))
+                }
+            </ScrollView>
+        </View>
+    )
+    
+const styles = StyleSheet.create({
+    mainContainer:{
+        flex: 1,
+        backgroundColor: '#f0f0f0',
+    },
+    heading:{
+        fontSize: 20,
+        fontWeight: 'bold',
+        textAlign: 'center',
+        marginVertical: 10 ,
+        color: 'blue',
+    },
+    container:{
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        justifyContent: 'space-between',
+        padding:10,
+    },
+    grid:{
+        backgroundColor: 'lightblue',
+        borderRadius: 15,
+        padding: 10,
+        marginBottom: 20,
+         width: "48%",
+         height: 100,
+         alignItems: 'center',
+         justifyContent: 'center',
+    },
+    gridText:{
+        fontSize: 16,
+        fontWeight: 'bold',
+        color:"white",  
+    }
+});
+
+------------- Class 17 --------------
+Class base component
+
+sbsy phly jo class bnao usk sat extend Component likhna zrori ha
+import React, {Component} from 'react';
+
+koi bh view render ka funciton ma bnyga
+render(){
+  return(
+    <View> </View>
+  )
+}
+
+prop use krny ka liye parent component sy data send kren
+eg: <SecondClassComponent age={this.age} /> 
+then prop ko hm class base ma direct use krskty hn like this
+eg: class SecondClassComponent extends Component {
+    render() {
+    return (
+      <View> {this.prop.age} </View>
+    )
+    }
+ }
+
+
+useState use krny ka liye constructor bnana zrori ha and us ma super ka funciton use kran bh zrori ha essy 
+parent function Compoent ki functionality run hoti hn jo state ko manange krengi 
+
+
+
+import { Button, Text, View } from 'react-native'
+import React, { Component } from 'react'
+
+ class SecondClassComponent extends Component {
+
+    constructor(){
+        super();
+        this.state = {
+            name: 'M.Bilal',
+        }
+    }
+    updateName = ()=>{
+        this.setState({
+            name: 'Bilal Mobile App'
+        })
+    }
+  render() {
+    return (
+      <View>
+        <Text>SecondClassComponent</Text>
+        <Text>Name: {this.state.name}</Text>
+        <Text>Age: {this.props.age}</Text>
+        <Button onPress={this.updateName} title="Press Me" />
+      </View>
+    )
+  }
+}
+
+export default SecondClassComponent
