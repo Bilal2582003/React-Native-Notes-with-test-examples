@@ -62,10 +62,24 @@ import React from 'react';
 // import UseEffectHookUnMount from './src/components/UseEffectHookUnMount';
 // import Loader from './src/components/Loader';
 // import PressAbleComponent from './src/components/PressAbleComponent';
-import StatusBarExample from './src/components/StatusBarExample';
+// import StatusBarExample from './src/components/StatusBarExample';
+// import UseRefHook from './src/components/UseRefHook';
+// import ModalBox from './src/components/ModalBox';
+// import AlertExp from './src/components/AlertExp';
+// import GetApis from './src/components/Apis/GetApis';
+// import POST_API from './src/components/Apis/POST_API';
+// import Put_API from './src/components/Apis/Put_API';
+// import GetWithFlatList from './src/components/GetWithFlatList';
+// import PlateFormExample from './src/components/PlateFormExample';
+// import Search from './src/components/Search';
+
+
 const App = () => {
-  return (
-    <View style={ { flex: 1} }>
+
+
+
+  // return (
+    // <View style={ { flex: 1} }>
       {/* <Text>----------- X ------------ X ------------</Text>
       <Text style={ { fontSize: 20 } }>----------- Simple Show In Main ------------</Text>
       <Text style={ { fontSize:30 } }>MyApp</Text>
@@ -135,9 +149,34 @@ const App = () => {
 
       {/* <PressAbleComponent/> */}
       
-      <StatusBarExample/>
+      {/* <StatusBarExample/> */}
+
+      {/* <UseRefHook/> */}
+
+      {/* <ModalBox/> */}
+
+      {/* <AlertExp/> */}
+
+      {/* <GetApis/> */}
+      {/* <POST_API/> */}
+      {/* <Put_API/> */}
+      {/* <Put_API/> */}
+      {/* <GetWithFlatList/> */}
+      {/* <PlateFormExample/> */}
+      {/* <Search/> */}
+
+    // </View>
+  // );
+ return (
+     <View
+      style={{
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+      }}>
+      <Text>Hello React Native</Text>
     </View>
-  );
+ )
 };
 
 // Other commponent 
