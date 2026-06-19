@@ -45,24 +45,51 @@
 // export default App;
 
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, Button, Alert } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-function HomeScreen() {
+function HomeScreen({navigation}) {
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
       <Text>Home Screen</Text>
+      <Button onPress={()=> navigation.navigate('Product')} title="Go To Product" />
+    </View>
+  );
+}
+function ProductScreen({navigation}) {
+  return (
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Text>Product Screen</Text>
+      <Button title="Home" onPress={() => navigation.navigate('Home')} />
+    </View>
+  );
+}
+function HeaderScreen({navigation}) {
+  return (
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Text>Header Screen</Text>
     </View>
   );
 }
 
 const Stack = createNativeStackNavigator();
+const showAlert = () => {
+  Alert.alert("Hello Click from header")
+};
+const HeaderTitle = () => <Button title="Left" onPress={showAlert} />;
+const HeaderRight = () => <Button title="Right" onPress={showAlert} />;
 
 function RootStack() {
   return (
     <Stack.Navigator>
+      <Stack.Screen name="Header" component={HeaderScreen} options={{
+        title: "",
+        headerTitle: HeaderTitle,
+        headerRight: HeaderRight
+      }} />
       <Stack.Screen name="Home" component={HomeScreen} />
+      <Stack.Screen name="Product" component={ProductScreen} options={{ headerShown: false }} />
     </Stack.Navigator>
   );
 }
