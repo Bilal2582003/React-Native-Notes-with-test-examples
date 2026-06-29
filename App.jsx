@@ -1,104 +1,33 @@
-// /**
-//  * Sample React Native App
-//  * https://github.com/facebook/react-native
-//  *
-//  * @format
-//  */
-
-// import { NewAppScreen } from '@react-native/new-app-screen';
-// import { StatusBar, StyleSheet, useColorScheme, View } from 'react-native';
-// import {
-//   SafeAreaProvider,
-//   useSafeAreaInsets,
-// } from 'react-native-safe-area-context';
-
-// function App() {
-//   const isDarkMode = useColorScheme() === 'dark';
-
-//   return (
-//     <SafeAreaProvider>
-//       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-//       <AppContent />
-//     </SafeAreaProvider>
-//   );
-// }
-
-// function AppContent() {
-//   const safeAreaInsets = useSafeAreaInsets();
-
-//   return (
-//     <View style={styles.container}>
-//       <NewAppScreen
-//         templateFileName="App.tsx"
-//         safeAreaInsets={safeAreaInsets}
-//       />
-//     </View>
-//   );
-// }
-
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//   },
-// });
-
-// export default App;
-
 import React from 'react';
-import { View, Text, Button, Alert } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createDrawerNavigator } from '@react-navigation/drawer';
 
-function HomeScreen({navigation}) {
-  return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Home Screen</Text>
-      <Button onPress={()=> navigation.navigate('Product')} title="Go To Product" />
-    </View>
-  );
-}
-function ProductScreen({navigation}) {
-  return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Product Screen</Text>
-      <Button title="Home" onPress={() => navigation.navigate('Home')} />
-    </View>
-  );
-}
-function HeaderScreen({navigation}) {
-  return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Header Screen</Text>
-    </View>
-  );
-}
+import Home from './screens/Home';
+import Profile from './screens/Profile';
 
-const Stack = createNativeStackNavigator();
-const showAlert = () => {
-  Alert.alert("Hello Click from header")
-};
-const HeaderTitle = () => <Button title="Left" onPress={showAlert} />;
-const HeaderRight = () => <Button title="Right" onPress={showAlert} />;
+const Drawer = createDrawerNavigator();
 
-function RootStack() {
-  return (
-    <Stack.Navigator>
-      <Stack.Screen name="Header" component={HeaderScreen} options={{
-        title: "",
-        headerTitle: HeaderTitle,
-        headerRight: HeaderRight
-      }} />
-      <Stack.Screen name="Home" component={HomeScreen} />
-      <Stack.Screen name="Product" component={ProductScreen} options={{ headerShown: false }} />
-    </Stack.Navigator>
-  );
-}
-const App = () => {
+export default function App() {
   return (
     <NavigationContainer>
-      <RootStack />
+      <Drawer.Navigator screenOptions={{
+        drawerStyle: {
+          backgroundColor: "#e6e6e6",
+          width:240
+        },
+        drawerLabelStyle:{
+          fontSize: 18,
+          color: "#333",
+        },
+        headerStyle:{
+          backgroundColor: "#6200EE"
+        },
+        headerTintColor: "#fff",
+        headerTitleAlign: "center"
+      }}>
+        <Drawer.Screen name="Home" component={Home} />
+        <Drawer.Screen name="Profile" component={Profile} />
+      </Drawer.Navigator>
     </NavigationContainer>
   );
-};
-
-export default App;
+}
