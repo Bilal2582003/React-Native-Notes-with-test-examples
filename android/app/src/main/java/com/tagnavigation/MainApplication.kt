@@ -1,4 +1,4 @@
-package com.mynewapp
+package com.tagnavigation
 
 import android.app.Application
 import com.facebook.react.PackageList
